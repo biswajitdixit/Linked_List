@@ -1,6 +1,8 @@
 package com.list;
 
-public class MyLinkedList {
+
+
+public class MyLinkedList<K> {
     public INode head;
     public INode tail;
 
@@ -48,10 +50,19 @@ public class MyLinkedList {
         while (!tempNode.getNext().equals(tail)){
             tempNode = tempNode.getNext();
         }
-        //tail.setNext(tempNode);
         this.tail = tempNode;
         tempNode = tempNode.getNext();
         return  tempNode;
+    }
+    public INode SearchAnElementInALinkedList(K key) {
+        INode tempNode = this.head;
+        while (tempNode != null) {
+            if (tempNode.equals(key)) {
+                return tempNode;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return null;
     }
     public  void printMyNodes(){
         StringBuffer myNodes=new StringBuffer("My Nodes: ");
