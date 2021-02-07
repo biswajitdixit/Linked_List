@@ -117,4 +117,22 @@ public class MyLinkedListTest {
                 && myLinkedList.tail.equals(myFirstNode) && mySecondNode.getNext().equals(newNode);
         Assert.assertTrue(result);
     }
+    @Test
+    public void given4NumbersWhenDeletingMiddleShouldPassResult() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(40);
+        MyNode<Integer> myFourthNode = new MyNode<>(70);
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.deleteInMiddle(myThirdNode);
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode);
+        myLinkedList.tail.equals(myFourthNode);
+        Assert.assertTrue(result);
+    }
+
 }
